@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFromApp", "TextFromApp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskWebApp.API", "TaskWebApp.API\TaskWebApp.API.csproj", "{C12C9E93-7ED7-449F-8CF8-03C9D749FC34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskConsoleApp", "TaskConsoleApp\TaskConsoleApp.csproj", "{4DC0D861-F212-4A48-8637-AB748B29A7F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskConsoleApp", "TaskConsoleApp\TaskConsoleApp.csproj", "{4DC0D861-F212-4A48-8637-AB748B29A7F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskThreadAoo", "TaskThreadAoo\TaskThreadAoo.csproj", "{9655AC4F-47A0-4934-9488-FCE544DE291D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskCancellationTokenFormApp", "TaskCancellationTokenFormApp\TaskCancellationTokenFormApp.csproj", "{6C9CA519-42D1-4DD1-AA1A-617618737209}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9655AC4F-47A0-4934-9488-FCE544DE291D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9655AC4F-47A0-4934-9488-FCE544DE291D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9655AC4F-47A0-4934-9488-FCE544DE291D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C9CA519-42D1-4DD1-AA1A-617618737209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C9CA519-42D1-4DD1-AA1A-617618737209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C9CA519-42D1-4DD1-AA1A-617618737209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C9CA519-42D1-4DD1-AA1A-617618737209}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
