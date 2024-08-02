@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,12 +16,22 @@ namespace TaskConsoleApp
         public int Len { get; set; }
     }
 
+    public class Status
+    {
+        public int ThreadId { get; set; }
+        public DateTime Date { get; set; }
+    }
+
 
 
     internal class Program
     {
-        private async static Task Main(string[] args)
+
+        public static string CacheData { get; set; }
+        public async static Task Main(string[] args)
         {
+            
+
 
             Console.Out.WriteLine("Main Thread: " + Thread.CurrentThread.ManagedThreadId);
 
@@ -44,11 +56,50 @@ namespace TaskConsoleApp
 
 
 
+            #region FromResult 
+            // parametre olarak bir obje alır. bu obje değerini geriye bir task nesne örneği ile beraber dönmektedir.
+            // eğerki bir metotan geriye daha önce almış olduğumuz statik bir datayı dönmek istiyorsam fromResult ı kullanabiliriz.
+            // genellikle bu metodu cachelenmiş bir datayı dönmek için kullanırız.Yani bir ifadeyi değeri task olarak geriye dönmemi sağlar.
+
+            //CacheData = await GetDataAsync();
+
+            //Console.WriteLine(CacheData);
+
+            #endregion
+
+
+            #region StartNew
+
+            //var myTask = Task.Factory.StartNew((Obj) => // StartNew() => Run() metodu ile aynı işlemi gerçekleştiriyor.
+            //                                            // içerisine yazmış olduğum kodları aytı bir thread üzerinde çalıştırıyor.
+            //                                            // farkı nedir peki? burada metoduma obje geçebiliyorum.
+            //                                            // Task işlemi bittiğinde burada geçmiş olduğum objeii alabiliyorum.
+            //{
+            //    Console.WriteLine("myTask çalıştı.");
+
+            //    var status = Obj as Status; // as => eğer Obj yi status e çevirirse çevirir çeviremezse null döner. is kullanırsakta çevirirse true çeviremezse false döner.
+
+            //    status.ThreadId = Thread.CurrentThread.ManagedThreadId;
+
+            //}, new Status() { Date = DateTime.Now});
+
+
+            //await myTask;
+
+            //Status s = myTask.AsyncState as Status;
+
+            //Console.WriteLine(s.Date.ToString());
+            //Console.WriteLine(s.ThreadId);
+
+            #endregion
+
+
+
             #region WaitAny
 
-            var firstTaskIndex = Task.WaitAny(taskList.ToArray()); //  => UI Thread'i bloklar. vermiş olduğumuz tasklerden herhangi birisi tamamlanınca bir intdeğer döner. Dönmüş olduğu int değer ise tamamlanan taskin index numarasıdır. Bu index numarası ile ilgili task'i alabilirim
-                                                                   // mevzu UI Thread'i bloklaması.
-            Console.WriteLine($"{taskList[firstTaskIndex].Result.Site} - {taskList[firstTaskIndex].Result.Len}");
+            //var firstTaskIndex = Task.WaitAny(taskList.ToArray()); //  => UI Thread'i bloklar. vermiş olduğumuz tasklerden herhangi birisi tamamlanınca bir intdeğer döner. Dönmüş olduğu int değer ise tamamlanan taskin index numarasıdır. Bu index numarası ile ilgili task'i alabilirim
+            //                                                       // mevzu UI Thread'i bloklaması.
+            //Console.WriteLine($"{taskList[firstTaskIndex].Result.Site} - {taskList[firstTaskIndex].Result.Len}");
             #endregion
 
 
@@ -91,6 +142,21 @@ namespace TaskConsoleApp
             Console.WriteLine("GetContentAsync: " + Thread.CurrentThread.ManagedThreadId);
 
             return content;
+        }
+
+        public static Task<string> GetDataAsync()
+        {
+
+
+            if (String.IsNullOrEmpty(CacheData))
+            {
+                return File.ReadAllTextAsync("dosya.txt");
+
+            }
+            else
+            {
+                return Task.FromResult<string>(CacheData);
+            }
         }
     }
 }
