@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskThreadAoo", "TaskThread
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskCancellationTokenFormApp", "TaskCancellationTokenFormApp\TaskCancellationTokenFormApp.csproj", "{6C9CA519-42D1-4DD1-AA1A-617618737209}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForEachParallel", "ForEachParallel\ForEachParallel.csproj", "{2DC10074-6ACC-4B2C-BFD9-701CDB612051}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6C9CA519-42D1-4DD1-AA1A-617618737209}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C9CA519-42D1-4DD1-AA1A-617618737209}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C9CA519-42D1-4DD1-AA1A-617618737209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DC10074-6ACC-4B2C-BFD9-701CDB612051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DC10074-6ACC-4B2C-BFD9-701CDB612051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DC10074-6ACC-4B2C-BFD9-701CDB612051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DC10074-6ACC-4B2C-BFD9-701CDB612051}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
